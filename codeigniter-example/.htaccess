@@ -1,0 +1,8 @@
+RewriteEngine on
+php_value memory_limit 32M
+RewriteCond $1 !^(favicon\.ico|admin\.php|index\.php|assets|assets-uploaded|forum|robots\.txt)
+RewriteRule ^admin/(.*)$ /admin.php?$1 [L]
+ 
+RewriteCond $1 !^(favicon\.ico|admin\.php|index\.php|assets|assets-uploaded|forum|robots\.txt)
+RewriteRule ^(.*)$ /index.php?$1 [L]
+

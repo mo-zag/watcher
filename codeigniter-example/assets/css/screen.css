@@ -1,0 +1,14 @@
+@import url(content.css);
+body {
+  background: white;
+  font-size: 14px;
+  font-family: Verdana, Geneva, sans-serif; }
+  body #wrapper {
+    width: 100%; }
+    body #wrapper h1 {
+      color: #d5313a;
+      font-size: 26px; }
+    body #wrapper p {
+      color: black;
+      border: 1px dashed #cecece;
+      padding: 7px; }

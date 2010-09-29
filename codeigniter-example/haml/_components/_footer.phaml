@@ -1,0 +1,14 @@
+%p
+  Edit config file and set you paths please note these paths should be full paths
+%ul
+  %li
+    @folderTo ="C:/location-of-php-folder"
+  %li
+    @cssFolderTo = "C:/location-to-save-converted-sass-files"
+%p
+  Haml files are located in haml folder which generated this view.
+:plain
+      </div>
+    <body>
+  </html>
+  

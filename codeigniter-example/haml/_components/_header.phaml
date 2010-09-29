@@ -1,0 +1,16 @@
+!!!
+:plain
+  <html>
+%head
+  %title
+    <?=$title?> 
+  %link{ :rel => "stylesheet", :href =>"../assets/css/screen.css", :type => "text/css" }  
+:plain
+  <body>
+    <div id ="wrapper" >
+%h1
+  // PHP Variable
+  <?=$pageHeading?>
+  
+
+  

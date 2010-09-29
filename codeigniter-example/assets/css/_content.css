@@ -1,0 +1,6 @@
+#wrapper {
+  width: 300px;
+  height: 400px; }
+  #wrapper ul li {
+    list-style: none;
+    border: 1px solid black; }
