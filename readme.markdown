@@ -20,6 +20,7 @@ To use Watcher download source code open <strong>config.rb</strong>
     %title
        Haml &amp; Sass Watcher for PHP developers
   %body
-    &lt;?php echo $heading; ?&gt;
+    %h1
+      &lt;?php echo $heading; ?&gt;
 </code>
 </pre>
