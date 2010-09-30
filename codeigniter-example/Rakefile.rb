@@ -12,13 +12,15 @@ require 'class/errortemplate.rb'
 require 'sass/plugin/rack'
 load 'config.rb'
 
-task :Watch do |t|
+task :watch do |t|
 # Start task
 		watcher = FileSystemWatcher.new()
 		# Set Configuration variables
 		folder =  @folderTo
 		cssFolder = @cssFolderTo
 		directorytowatch = @dirFolderTo
+		optionsass = @sassoptions
+		optionshaml = @hamloptions
 
 		watcher.addDirectory(directorytowatch, '**/*.*')
 
@@ -33,12 +35,13 @@ task :Watch do |t|
 					if(ex == "haml")
 						filetoname = sassFile[1].sub(".haml", "")
 							begin
+									puts "#{optionshaml}"
 									template = File.read(file)
-									engine = Haml::Engine.new(template)
+									engine = Haml::Engine.new(template, optionshaml)
 									te = engine.render
 									fileWrite = "#{folder}/#{filetoname}.html"
 									File.open(fileWrite, 'w') {|f| f.write(te) } 
-                                    puts  "Writing haml file - (#{fileName.last})"
+									puts  "Writing haml file - (#{fileName.last})"
 								rescue Exception => e 
 									puts "#{plainError e, file}"
 									fileWrite = "#{folder}/#{filetoname}.html"
@@ -49,11 +52,11 @@ task :Watch do |t|
 						filetonamesass =fileName.last.sub(".sass", "")
 								begin
 
-									stylesheet = Sass::Engine.new(File.read(file))
-									sassConverted = stylesheet.to_css
+									stylesheet = Sass::Engine.new(File.read(file), optionsass)
+									sassConverted = stylesheet.render #stylesheet.to_css
 									fileWrite = "#{cssFolder}/#{filetonamesass}.css"
 									File.open(fileWrite, 'w') {|f| f.write(sassConverted) } 
-                                    puts "Writing sass file - (#{fileName.last})"
+									puts "Writing sass file - (#{fileName.last})"
 								rescue Exception => e 
 										puts "#{plainError e, file}"
 										fileWrite = "#{cssFolder}/#{filetonamesass}.css"
@@ -65,7 +68,7 @@ task :Watch do |t|
 					filetonamephp = sassFile[1].sub(".phaml", "")
 							begin
 								template = File.read(file)
-								engine = Haml::Engine.new(template)
+								engine = Haml::Engine.new(template, optionshaml)
 								te = engine.render
 								fileWrite = "#{folder}/#{filetonamephp}.php"
 								File.open(fileWrite, 'w') {|f| f.write(te) } #if File::exists?(fileWrite)
