@@ -1,10 +1,11 @@
-<h1> HAML - SASS Watcher for PHP developers </h1>
+<h1> Haml &amp; Sass Watcher for PHP developers </h1>
 <p>
-To use Watcher download source code open config.rb
+To use Watcher download source code open <strong>config.rb</strong>
 </p>
 <ul>
-<li>Change properties to macth your machine</li>
-<li>Open CMD navigate to the folder you downloaded source and run <strong>rake Watch</strong></li>
-<li>Open folder haml-sass or if your using codeigniter example open haml folder edit index.haml or <strong>index.phaml (converts this to a .php ext)</strong> make a change save it</li>
-<li>Open php folder or your codigniter view folder open index.html or index.php your change should now be saved in this folder.</li>
+<li>Change properties to match your machine</li>
+<li>Open your command line and navigate to the folder where you downloaded the source and run <code>rake Watch</code></li>
+<li>Open the haml-sass directory (or in the codeigniter example the haml folder) and edit index.haml or <strong>index.phaml</strong> make a change save it</li>
+<li>phaml files will be saved as .php files, haml files will be saved as .html files</li>
+<li>Open the <strong>php</strong> directory or your codeigniter <strong>views</strong> directory folder and open index.html or index.php in your editor to view your changes.</li>
 </ul>
