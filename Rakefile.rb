@@ -53,7 +53,7 @@ task :watch do |t|
 								begin
 
 									stylesheet = Sass::Engine.new(File.read(file), optionsass)
-									sassConverted = stylesheet.render #stylesheet.to_css
+									sassConverted = stylesheet.render
 									fileWrite = "#{cssFolder}/#{filetonamesass}.css"
 									File.open(fileWrite, 'w') {|f| f.write(sassConverted) } 
 									puts "Writing sass file - (#{fileName.last})"
@@ -71,7 +71,7 @@ task :watch do |t|
 								engine = Haml::Engine.new(template, optionshaml)
 								te = engine.render
 								fileWrite = "#{folder}/#{filetonamephp}.php"
-								File.open(fileWrite, 'w') {|f| f.write(te) } #if File::exists?(fileWrite)
+								File.open(fileWrite, 'w') {|f| f.write(te) }
 								puts "Writing phaml file - (#{fileName.last})"
 							rescue Exception => e 
 									puts "#{plainError e, file}"
