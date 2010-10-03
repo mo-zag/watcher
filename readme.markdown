@@ -24,3 +24,51 @@ To use Watcher download source code open <strong>config.rb</strong>
       &lt;?php echo $heading; ?&gt;
 </code>
 </pre>
+<h3>Stop Haml from escaping PHP opening closing brackets</h3>
+<p>
+In some cases we would like to add our php code to be in a html attribute 
+</p>
+<pre>
+<code>
+%content
+  %p{ :id => "&lt;?php echo 'paragraph'; ?&gt;" }
+</code>
+</pre>
+<p>
+but the Haml parser by default escapes PHP opening and closing brackets.
+Work around is to hack the Haml code to do this find the haml folder inside your gems folder open haml-3.0.11\lib\haml\helpers.rb find
+</p>
+<pre>
+<code>
+HTML_ESCAPE = { '&'=>'&amp;', '<'=>'&lt;', '>'=>'&gt;', '"'=>'&quot;', "'"=>'&#039;', }
+</pre>
+</code>
+Comment out the existing code and add the code below
+<pre>
+<code>
+#HTML_ESCAPE = { '&'=>'&amp;', '<'=>'&lt;', '>'=>'&gt;', '"'=>'&quot;', "'"=>'&#039;', }
+HTML_ESCAPE = { '&'=>'&amp;', '<'=>'<', '>'=>'>', '"'=>'&quot;', "'"=>'&#039;', }
+</code>
+</pre>
+<strong>NOTE: Make sure you just comment the existing code, so you can go back to this when not using PHP.</strong>
+
+<h3>Add a block of PHP code without having to indent the code</h3>
+
+<p>
+Just add :plain tag and Haml will render the code below this tag as you write see example below
+</p>
+
+<pre><code>
+#content
+  %p
+    PHP block code example
+  :plain
+    &lt;?php function helloworld()
+      {
+          $haml = "Hellow world";
+          return $haml;
+      }
+      ?&gt;
+  #wrapper
+    &lt;?php helloworld(); ?&gt;
+</code></pre>
