@@ -55,7 +55,7 @@ HTML_ESCAPE = { '&'=>'&amp;', '<'=>'<', '>'=>'>', '"'=>'&quot;', "'"=>'&#039;', 
 <h3>Add a block of PHP code without having to indent the code</h3>
 
 <p>
-Just add :plain tag and Haml will render the code below this tag as you write see example below
+Just add <code>:plain</code> tag and Haml will render the code below this tag as you write see example below
 </p>
 
 <pre><code>
