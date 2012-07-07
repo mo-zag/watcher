@@ -40,7 +40,7 @@ Work around is to hack the Haml code to do this find the haml folder inside your
 </p>
 <p>
 <strong>NOTE:</strong> If you have  HAML 3.1.4 you can set in config file <em>@hamloptions = {:attr_wrapper => '"', :escape_attrs => false }</em>
-
+to stop HAML from escaping charactersif you have a previouse version you canfollow the instructions bellow.
 </p>
 <code>
 <pre>
