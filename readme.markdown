@@ -38,8 +38,12 @@ In some cases we would like to add our php code to be in a html attribute
 but the Haml parser by default escapes PHP opening and closing brackets.
 Work around is to hack the Haml code to do this find the haml folder inside your gems folder open haml-3.0.11\lib\haml\helpers.rb find
 </p>
-<pre>
+<p>
+<strong>NOTE:</strong> If you have  HAML 3.1.4 you can set in config file <em>@hamloptions = {:attr_wrapper => '"', :escape_attrs => false }</em>
+
+</p>
 <code>
+<pre>
 HTML_ESCAPE = { '&'=>'&amp;', '<'=>'&lt;', '>'=>'&gt;', '"'=>'&quot;', "'"=>'&#039;', }
 </pre>
 </code>
